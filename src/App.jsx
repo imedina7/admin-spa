@@ -36,7 +36,7 @@ export default class App extends React.Component {
         restoreOriginalUri={this.restoreOriginalUri}
       >
         <Routes>
-          <Route path="/" element={<MainLayout />}>
+          <Route path="/" element={<MainLayout oktaAuth={this.oktaAuth} />}>
             <Route index element={<Dashboard />} />
             <Route path="chat" element={<Chat />} />
             <Route path="profile" element={<Profile />} />

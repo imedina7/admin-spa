@@ -1,8 +1,9 @@
+import { OktaAuth } from "@okta/okta-auth-js";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Nav() {
-  const [dropdownState, setDropdownState] = useState();
+export default function Nav({oktaAuth}: {oktaAuth: OktaAuth}) {
+  const [dropdownState, setDropdownState] = useState(false);
 
   return (
     <nav className="bg-gray-800">
@@ -141,13 +142,13 @@ export default function Nav() {
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="user-menu-button"
-                tabIndex="-1"
+                tabIndex={-1}
               >
                 <Link
                   to="/profile"
                   className="block px-4 py-2 text-sm text-gray-700"
                   role="menuitem"
-                  tabIndex="-1"
+                  tabIndex={-1}
                   id="user-menu-item-0"
                 >
                   Your Profile
@@ -156,7 +157,7 @@ export default function Nav() {
                   to="/settings"
                   className="block px-4 py-2 text-sm text-gray-700"
                   role="menuitem"
-                  tabIndex="-1"
+                  tabIndex={-1}
                 >
                   Settings
                 </Link>
@@ -165,7 +166,7 @@ export default function Nav() {
                   to="/logout"
                   className="block px-4 py-2 text-sm text-gray-700"
                   role="menuitem"
-                  tabIndex="-1"
+                  tabIndex={-1}
                 >
                   Sign out
                 </Link>
