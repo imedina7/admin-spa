@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Nav({oktaAuth}: {oktaAuth: OktaAuth}) {
   const [dropdownState, setDropdownState] = useState(false);
+  const [mobileMenuState, setMobileMenuState] = useState(false);
 
   return (
     <nav className="bg-gray-800">
@@ -15,6 +16,8 @@ export default function Nav({oktaAuth}: {oktaAuth: OktaAuth}) {
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded="false"
+              onClick={() => setMobileMenuState(!mobileMenuState)}
+              onBlur={() => setTimeout(() => setMobileMenuState(false), 150)}
             >
               <span className="sr-only">Open main menu</span>
 
@@ -176,7 +179,7 @@ export default function Nav({oktaAuth}: {oktaAuth: OktaAuth}) {
         </div>
       </div>
 
-      <div className="sm:hidden" id="mobile-menu">
+      <div className={`${ mobileMenuState ? '':'hidden '}sm:hidden`} id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1">
           <Link to="/">
             <span

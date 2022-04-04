@@ -1,5 +1,4 @@
 import { OktaAuth } from "@okta/okta-auth-js";
-import React from "react";
 import { Outlet } from "react-router-dom";
 
 import Nav from "../components/layout/Nav";
